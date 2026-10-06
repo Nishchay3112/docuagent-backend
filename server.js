@@ -146,7 +146,11 @@ function normalizeText(text) {
    CHUNKING
 ========================================================= */
 
-function chunkText(text, chunkSize = CHUNK_SIZE, overlap = CHUNK_OVERLAP) {
+function chunkText(
+  text,
+  chunkSize = CHUNK_SIZE,
+  overlap = CHUNK_OVERLAP
+) {
   const normalized = normalizeText(text);
 
   const chunks = [];
@@ -154,27 +158,35 @@ function chunkText(text, chunkSize = CHUNK_SIZE, overlap = CHUNK_OVERLAP) {
   let start = 0;
 
   while (start < normalized.length) {
-    let end = Math.min(start + chunkSize, normalized.length);
-
-    /*
-      Prefer ending at a newline or sentence boundary.
-    */
+    let end = Math.min(
+      start + chunkSize,
+      normalized.length
+    );
 
     if (end < normalized.length) {
-      const newlinePosition = normalized.lastIndexOf('\n', end);
+      const newlinePosition =
+        normalized.lastIndexOf('\n', end);
 
-      if (newlinePosition > start + chunkSize * 0.6) {
+      if (
+        newlinePosition >
+        start + chunkSize * 0.6
+      ) {
         end = newlinePosition;
       } else {
-        const sentencePosition = normalized.lastIndexOf('. ', end);
+        const sentencePosition =
+          normalized.lastIndexOf('. ', end);
 
-        if (sentencePosition > start + chunkSize * 0.6) {
+        if (
+          sentencePosition >
+          start + chunkSize * 0.6
+        ) {
           end = sentencePosition + 1;
         }
       }
     }
 
-    const chunk = normalized.slice(start, end).trim();
+    const chunk =
+      normalized.slice(start, end).trim();
 
     if (chunk.length > 0) {
       chunks.push(chunk);
@@ -184,7 +196,10 @@ function chunkText(text, chunkSize = CHUNK_SIZE, overlap = CHUNK_OVERLAP) {
       break;
     }
 
-    start = Math.max(end - overlap, start + 1);
+    start = Math.max(
+      end - overlap,
+      start + 1
+    );
   }
 
   return chunks;
@@ -278,15 +293,20 @@ function classifyQueryWithHeuristics(query) {
     'what happened',
   ];
 
-  const hasDocumentSignal = documentTerms.some(term =>
-    q.includes(term)
-  );
+  const hasDocumentSignal =
+    documentTerms.some(term =>
+      q.includes(term)
+    );
 
-  const hasWebSignal = webTerms.some(term =>
-    q.includes(term)
-  );
+  const hasWebSignal =
+    webTerms.some(term =>
+      q.includes(term)
+    );
 
-  if (hasDocumentSignal && hasWebSignal) {
+  if (
+    hasDocumentSignal &&
+    hasWebSignal
+  ) {
     return {
       route: 'MIXED',
       reason:
@@ -314,7 +334,8 @@ function classifyQueryWithHeuristics(query) {
 }
 
 async function classifyQuery(query) {
-  const heuristicResult = classifyQueryWithHeuristics(query);
+  const heuristicResult =
+    classifyQueryWithHeuristics(query);
 
   if (heuristicResult) {
     return heuristicResult;
@@ -353,24 +374,31 @@ ${query}
 `;
 
   try {
-    const response = await groq.chat.completions.create({
-      model: GROQ_MODEL,
-      temperature: 0,
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-    });
+    const response =
+      await groq.chat.completions.create({
+        model: GROQ_MODEL,
+        temperature: 0,
+        messages: [
+          {
+            role: 'user',
+            content: prompt,
+          },
+        ],
+      });
 
     const raw =
-      response.choices?.[0]?.message?.content || '';
+      response.choices?.[0]?.message?.content ||
+      '';
 
-    const parsed = JSON.parse(cleanLLMResponse(raw));
+    const parsed =
+      JSON.parse(
+        cleanLLMResponse(raw)
+      );
 
     if (
-      ['DOCUMENT', 'WEB', 'MIXED'].includes(parsed.route)
+      ['DOCUMENT', 'WEB', 'MIXED'].includes(
+        parsed.route
+      )
     ) {
       return {
         route: parsed.route,
@@ -397,12 +425,19 @@ ${query}
    PINECONE INDEX WAIT
 ========================================================= */
 
-async function waitForIndexToPopulate(expectedCount) {
+async function waitForIndexToPopulate(
+  expectedCount
+) {
   const maxAttempts = 15;
 
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+  for (
+    let attempt = 1;
+    attempt <= maxAttempts;
+    attempt++
+  ) {
     try {
-      const stats = await pineconeIndex.describeIndexStats();
+      const stats =
+        await pineconeIndex.describeIndexStats();
 
       const total =
         stats?.totalRecordCount ??
@@ -413,8 +448,13 @@ async function waitForIndexToPopulate(expectedCount) {
         `Pinecone readiness check ${attempt}/${maxAttempts}: ${total} records`
       );
 
-      if (Number(total) >= expectedCount) {
-        console.log('Pinecone index is ready.');
+      if (
+        Number(total) >= expectedCount
+      ) {
+        console.log(
+          'Pinecone index is ready.'
+        );
+
         return true;
       }
     } catch (error) {
@@ -438,23 +478,32 @@ async function waitForIndexToPopulate(expectedCount) {
    DOCUMENT RETRIEVAL
 ========================================================= */
 
-async function retrieveDocumentContext(query) {
-  console.log('\n===== PINECONE RETRIEVAL =====');
-  console.log('Query:', query);
+async function retrieveDocumentContext(
+  query
+) {
+  console.log(
+    '\n===== PINECONE RETRIEVAL ====='
+  );
 
-  const searchResults = await pineconeIndex.searchRecords({
-    query: {
-      topK: PINECONE_TOP_K,
-      inputs: {
-        text: query,
+  console.log(
+    'Query:',
+    query
+  );
+
+  const searchResults =
+    await pineconeIndex.searchRecords({
+      query: {
+        topK: PINECONE_TOP_K,
+        inputs: {
+          text: query,
+        },
       },
-    },
-    fields: [
-      'text',
-      'filename',
-      'chunkIndex',
-    ],
-  });
+      fields: [
+        'text',
+        'filename',
+        'chunkIndex',
+      ],
+    });
 
   const hits =
     searchResults?.result?.hits || [];
@@ -468,46 +517,54 @@ async function retrieveDocumentContext(query) {
       hit =>
         hit &&
         hit.fields &&
-        typeof hit.fields.text === 'string' &&
+        typeof hit.fields.text ===
+        'string' &&
         hit.fields.text.trim().length > 0
     )
     .map(hit => ({
       text: hit.fields.text,
       filename:
-        hit.fields.filename || 'Document',
+        hit.fields.filename ||
+        'Document',
       chunkIndex:
-        hit.fields.chunkIndex ?? null,
+        hit.fields.chunkIndex ??
+        null,
       score:
         typeof hit._score === 'number'
           ? hit._score
           : null,
     }));
 
-  evidence.forEach((item, index) => {
-    console.log(
-      `\n--- RETRIEVED CHUNK ${index + 1} ---`
-    );
+  evidence.forEach(
+    (item, index) => {
+      console.log(
+        `\n--- RETRIEVED CHUNK ${index + 1} ---`
+      );
 
-    console.log(
-      'Score:',
-      item.score
-    );
+      console.log(
+        'Score:',
+        item.score
+      );
 
-    console.log(
-      'Chunk:',
-      item.chunkIndex
-    );
+      console.log(
+        'Chunk:',
+        item.chunkIndex
+      );
 
-    console.log(
-      'Filename:',
-      item.filename
-    );
+      console.log(
+        'Filename:',
+        item.filename
+      );
 
-    console.log(
-      'Text:',
-      item.text.substring(0, 1000)
-    );
-  });
+      console.log(
+        'Text:',
+        item.text.substring(
+          0,
+          1000
+        )
+      );
+    }
+  );
 
   console.log(
     '\n===== END PINECONE RETRIEVAL =====\n'
@@ -532,12 +589,13 @@ async function evaluateEvidence(
     };
   }
 
-  const evidenceText = evidence
-    .map(
-      (item, index) =>
-        `[Chunk ${index + 1}]\n${item.text}`
-    )
-    .join('\n\n');
+  const evidenceText =
+    evidence
+      .map(
+        (item, index) =>
+          `[Chunk ${index + 1}]\n${item.text}`
+      )
+      .join('\n\n');
 
   const prompt = `
 You are an evidence evaluator for a document question-answering system.
@@ -590,18 +648,24 @@ ${evidenceText}
       });
 
     const raw =
-      response.choices?.[0]?.message?.content || '';
+      response.choices?.[0]?.message?.content ||
+      '';
 
     const parsed =
-      JSON.parse(cleanLLMResponse(raw));
+      JSON.parse(
+        cleanLLMResponse(raw)
+      );
 
     if (
-      ['SUFFICIENT', 'PARTIAL', 'INSUFFICIENT'].includes(
-        parsed.relevance
-      )
+      [
+        'SUFFICIENT',
+        'PARTIAL',
+        'INSUFFICIENT',
+      ].includes(parsed.relevance)
     ) {
       return {
-        relevance: parsed.relevance,
+        relevance:
+          parsed.relevance,
         reason:
           parsed.reason ||
           'Evidence evaluated successfully.',
@@ -613,11 +677,6 @@ ${evidenceText}
       error.message
     );
   }
-
-  /*
-    If retrieval returned actual chunks, allow the answer
-    generator to inspect them rather than blindly failing.
-  */
 
   return {
     relevance: 'PARTIAL',
@@ -637,23 +696,30 @@ async function searchWeb(query) {
     );
   }
 
-  const response = await fetch(
-    'https://api.tavily.com/search',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        api_key: process.env.TAVILY_API_KEY,
-        query,
-        search_depth: 'advanced',
-        max_results: MAX_WEB_RESULTS,
-        include_answer: false,
-        include_raw_content: false,
-      }),
-    }
-  );
+  const response =
+    await fetch(
+      'https://api.tavily.com/search',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type':
+            'application/json',
+        },
+        body: JSON.stringify({
+          api_key:
+            process.env.TAVILY_API_KEY,
+          query,
+          search_depth:
+            'advanced',
+          max_results:
+            MAX_WEB_RESULTS,
+          include_answer:
+            false,
+          include_raw_content:
+            false,
+        }),
+      }
+    );
 
   if (!response.ok) {
     const errorText =
@@ -664,14 +730,22 @@ async function searchWeb(query) {
     );
   }
 
-  const data = await response.json();
+  const data =
+    await response.json();
 
-  return Array.isArray(data.results)
-    ? data.results.map(result => ({
-      title: result.title || '',
-      url: result.url || '',
-      content: result.content || '',
-    }))
+  return Array.isArray(
+    data.results
+  )
+    ? data.results.map(
+      result => ({
+        title:
+          result.title || '',
+        url:
+          result.url || '',
+        content:
+          result.content || '',
+      })
+    )
     : [];
 }
 
@@ -685,27 +759,31 @@ async function generateFinalAnswer({
   documentEvidence,
   webResults,
 }) {
-  const documentText = documentEvidence.length
-    ? documentEvidence
-      .map(
-        (item, index) =>
-          `[DOCUMENT CHUNK ${index + 1}]\n${item.text}`
-      )
-      .join('\n\n')
-    : 'No document evidence available.';
+  const documentText =
+    documentEvidence.length
+      ? documentEvidence
+        .map(
+          (item, index) =>
+            `[DOCUMENT CHUNK ${index + 1}]\n${item.text}`
+        )
+        .join('\n\n')
+      : 'No document evidence available.';
 
-  const webText = webResults.length
-    ? webResults
-      .map(
-        (item, index) =>
-          `[WEB SOURCE ${index + 1}]\nTitle: ${item.title}\nURL: ${item.url}\nContent: ${item.content}`
-      )
-      .join('\n\n')
-    : 'No web evidence available.';
+  const webText =
+    webResults.length
+      ? webResults
+        .map(
+          (item, index) =>
+            `[WEB SOURCE ${index + 1}]\nTitle: ${item.title}\nURL: ${item.url}\nContent: ${item.content}`
+        )
+        .join('\n\n')
+      : 'No web evidence available.';
 
   let instructions = '';
 
-  if (route === 'DOCUMENT') {
+  if (
+    route === 'DOCUMENT'
+  ) {
     instructions = `
 Answer ONLY from the uploaded document evidence.
 
@@ -723,7 +801,9 @@ For exact factual questions, copy the relevant value faithfully from the evidenc
 `;
   }
 
-  if (route === 'WEB') {
+  if (
+    route === 'WEB'
+  ) {
     instructions = `
 Answer using the web evidence.
 
@@ -733,7 +813,9 @@ If the web evidence is insufficient, say so.
 `;
   }
 
-  if (route === 'MIXED') {
+  if (
+    route === 'MIXED'
+  ) {
     instructions = `
 Use the document evidence for document-specific facts.
 
@@ -789,7 +871,8 @@ ${webText}
     });
 
   return cleanPlainText(
-    response.choices?.[0]?.message?.content || ''
+    response.choices?.[0]?.message
+      ?.content || ''
   );
 }
 
@@ -804,16 +887,18 @@ async function verifyAnswerGrounding({
   webResults,
   route,
 }) {
-  const documentText = documentEvidence
-    .map(item => item.text)
-    .join('\n\n');
+  const documentText =
+    documentEvidence
+      .map(item => item.text)
+      .join('\n\n');
 
-  const webText = webResults
-    .map(
-      item =>
-        `${item.title}\n${item.content}`
-    )
-    .join('\n\n');
+  const webText =
+    webResults
+      .map(
+        item =>
+          `${item.title}\n${item.content}`
+      )
+      .join('\n\n');
 
   const prompt = `
 You are a strict factual verifier.
@@ -865,16 +950,21 @@ Return ONLY JSON:
       });
 
     const raw =
-      response.choices?.[0]?.message?.content || '';
+      response.choices?.[0]?.message
+        ?.content || '';
 
     const parsed =
-      JSON.parse(cleanLLMResponse(raw));
+      JSON.parse(
+        cleanLLMResponse(raw)
+      );
 
     return {
       grounded:
         parsed.grounded === true,
       unsupported_claims:
-        Array.isArray(parsed.unsupported_claims)
+        Array.isArray(
+          parsed.unsupported_claims
+        )
           ? parsed.unsupported_claims
           : [],
     };
@@ -883,11 +973,6 @@ Return ONLY JSON:
       'Answer verification failed:',
       error.message
     );
-
-    /*
-      Do not destroy a valid answer merely because
-      the verifier itself failed.
-    */
 
     return {
       grounded: true,
@@ -904,6 +989,15 @@ async function processQuery(
   cleanQuery,
   onStage
 ) {
+  /*
+    Keep a local "query" alias as a safety measure.
+
+    The function receives cleanQuery, but this alias
+    prevents ReferenceError if any internal code refers
+    to query.
+  */
+  const query = cleanQuery;
+
   const stages = [];
 
   function updateStage(
@@ -912,12 +1006,13 @@ async function processQuery(
     status,
     details = ''
   ) {
-    const stage = createStage(
-      step,
-      title,
-      status,
-      details
-    );
+    const stage =
+      createStage(
+        step,
+        title,
+        status,
+        details
+      );
 
     stages.push(stage);
 
@@ -953,7 +1048,9 @@ async function processQuery(
   );
 
   const classification =
-    await classifyQuery(cleanQuery);
+    await classifyQuery(
+      cleanQuery
+    );
 
   console.log(
     'Classification:',
@@ -974,8 +1071,10 @@ async function processQuery(
   let documentEvidence = [];
 
   if (
-    classification.route === 'DOCUMENT' ||
-    classification.route === 'MIXED'
+    classification.route ===
+    'DOCUMENT' ||
+    classification.route ===
+    'MIXED'
   ) {
     updateStage(
       2,
@@ -1025,14 +1124,17 @@ async function processQuery(
   ------------------------------------------------------- */
 
   let evidenceEvaluation = {
-    relevance: 'INSUFFICIENT',
+    relevance:
+      'INSUFFICIENT',
     reason:
       'Document evidence was not required.',
   };
 
   if (
-    classification.route === 'DOCUMENT' ||
-    classification.route === 'MIXED'
+    classification.route ===
+    'DOCUMENT' ||
+    classification.route ===
+    'MIXED'
   ) {
     updateStage(
       3,
@@ -1102,7 +1204,9 @@ async function processQuery(
 
     try {
       webResults =
-        await searchWeb(cleanQuery);
+        await searchWeb(
+          cleanQuery
+        );
 
       updateStage(
         5,
@@ -1116,7 +1220,9 @@ async function processQuery(
         error.message
       );
 
-      if (finalRoute === 'WEB') {
+      if (
+        finalRoute === 'WEB'
+      ) {
         throw error;
       }
 
@@ -1141,7 +1247,8 @@ async function processQuery(
   ------------------------------------------------------- */
 
   if (
-    finalRoute === 'DOCUMENT' &&
+    finalRoute ===
+    'DOCUMENT' &&
     documentEvidence.length === 0
   ) {
     const answer =
@@ -1164,15 +1271,18 @@ async function processQuery(
     return {
       answer,
       logs: stages,
-      routeUsed: 'Pinecone Vector DB',
+      routeUsed:
+        'Pinecone Vector DB',
       route: finalRoute,
-      routeReason: classification.reason,
+      routeReason:
+        classification.reason,
       confidence: 'LOW',
       evidence: [],
       sources: [],
       retrievedCount: 0,
       webResultCount: 0,
-      evidenceRelevance: 'INSUFFICIENT',
+      evidenceRelevance:
+        'INSUFFICIENT',
     };
   }
 
@@ -1189,7 +1299,7 @@ async function processQuery(
 
   let answer =
     await generateFinalAnswer({
-      query: cleanQuery,
+      query,
       route: finalRoute,
       documentEvidence,
       webResults,
@@ -1215,21 +1325,18 @@ async function processQuery(
 
   let verification =
     await verifyAnswerGrounding({
-      query: cleanQuery,
+      query,
       answer,
       documentEvidence,
       webResults,
       route: finalRoute,
     });
 
-  /*
-    If verifier finds unsupported claims,
-    regenerate once with temperature 0.
-  */
-
   if (
     !verification.grounded &&
-    verification.unsupported_claims.length > 0
+    verification
+      .unsupported_claims
+      .length > 0
   ) {
     console.warn(
       'Unsupported claims detected:',
@@ -1238,7 +1345,7 @@ async function processQuery(
 
     answer =
       await generateFinalAnswer({
-        query: cleanQuery,
+        query,
         route: finalRoute,
         documentEvidence,
         webResults,
@@ -1246,7 +1353,7 @@ async function processQuery(
 
     verification =
       await verifyAnswerGrounding({
-        query: cleanQuery,
+        query,
         answer,
         documentEvidence,
         webResults,
@@ -1254,13 +1361,8 @@ async function processQuery(
       });
   }
 
-  /*
-    Do NOT replace a legitimate answer with
-    a generic failure message merely because
-    the verifier is uncertain.
-  */
-
-  answer = cleanPlainText(answer);
+  answer =
+    cleanPlainText(answer);
 
   updateStage(
     7,
@@ -1278,24 +1380,28 @@ async function processQuery(
   let confidence = 'LOW';
 
   if (
-    finalRoute === 'DOCUMENT' &&
+    finalRoute ===
+    'DOCUMENT' &&
     evidenceEvaluation.relevance ===
     'SUFFICIENT' &&
     documentEvidence.length > 0
   ) {
     confidence = 'HIGH';
   } else if (
-    finalRoute === 'DOCUMENT' &&
+    finalRoute ===
+    'DOCUMENT' &&
     documentEvidence.length > 0
   ) {
     confidence = 'MEDIUM';
   } else if (
-    finalRoute === 'WEB' &&
+    finalRoute ===
+    'WEB' &&
     webResults.length > 0
   ) {
     confidence = 'HIGH';
   } else if (
-    finalRoute === 'MIXED' &&
+    finalRoute ===
+    'MIXED' &&
     documentEvidence.length > 0 &&
     webResults.length > 0
   ) {
@@ -1307,19 +1413,30 @@ async function processQuery(
   ------------------------------------------------------- */
 
   const evidence =
-    documentEvidence.map(item => ({
-      filename: item.filename,
-      chunkIndex: item.chunkIndex,
-      score: item.score,
-      text: item.text,
-    }));
+    documentEvidence.map(
+      item => ({
+        filename:
+          item.filename,
+        chunkIndex:
+          item.chunkIndex,
+        score:
+          item.score,
+        text:
+          item.text,
+      })
+    );
 
   const sources =
-    webResults.map(result => ({
-      title: result.title,
-      url: result.url,
-      content: result.content,
-    }));
+    webResults.map(
+      result => ({
+        title:
+          result.title,
+        url:
+          result.url,
+        content:
+          result.content,
+      })
+    );
 
   console.log(
     '\n========== QUERY PROCESSING COMPLETE =========='
@@ -1344,13 +1461,16 @@ async function processQuery(
     answer,
     logs: stages,
     routeUsed:
-      finalRoute === 'DOCUMENT'
+      finalRoute ===
+        'DOCUMENT'
         ? 'Pinecone Vector DB'
-        : finalRoute === 'WEB'
+        : finalRoute ===
+          'WEB'
           ? 'Tavily Web Search'
           : 'Pinecone + Tavily',
     route: finalRoute,
-    routeReason: classification.reason,
+    routeReason:
+      classification.reason,
     confidence,
     evidence,
     sources,
@@ -1367,14 +1487,20 @@ async function processQuery(
    HEALTH CHECK
 ========================================================= */
 
-app.get('/', (req, res) => {
-  res.json({
-    success: true,
-    message: 'DocuAgent backend is running',
-    index: PINECONE_INDEX_NAME,
-    model: GROQ_MODEL,
-  });
-});
+app.get(
+  '/',
+  (req, res) => {
+    res.json({
+      success: true,
+      message:
+        'DocuAgent backend is running',
+      index:
+        PINECONE_INDEX_NAME,
+      model:
+        GROQ_MODEL,
+    });
+  }
+);
 
 /* =========================================================
    PDF UPLOAD
@@ -1400,7 +1526,8 @@ app.post(
       if (!req.file) {
         return res.status(400).json({
           success: false,
-          error: 'No PDF file uploaded.',
+          error:
+            'No PDF file uploaded.',
         });
       }
 
@@ -1408,17 +1535,15 @@ app.post(
         `Processing ${req.file.originalname} (${req.file.size} bytes)`
       );
 
-      /* ---------------------------------------------------
-         Extract text
-      --------------------------------------------------- */
-
       const extractedText =
         await extractPdfText(
           req.file.buffer
         );
 
       const normalizedText =
-        normalizeText(extractedText);
+        normalizeText(
+          extractedText
+        );
 
       console.log(
         `Extracted ${normalizedText.length} characters`
@@ -1429,7 +1554,10 @@ app.post(
       );
 
       console.log(
-        normalizedText.substring(0, 2500)
+        normalizedText.substring(
+          0,
+          2500
+        )
       );
 
       console.log(
@@ -1444,28 +1572,24 @@ app.post(
         });
       }
 
-      /* ---------------------------------------------------
-         Create chunks
-      --------------------------------------------------- */
-
       const documentChunks =
-        chunkText(normalizedText);
+        chunkText(
+          normalizedText
+        );
 
       console.log(
         `Created ${documentChunks.length} chunks`
       );
 
-      if (!documentChunks.length) {
+      if (
+        !documentChunks.length
+      ) {
         return res.status(400).json({
           success: false,
           error:
             'The document did not produce any usable chunks.',
         });
       }
-
-      /* ---------------------------------------------------
-         Clear old document
-      --------------------------------------------------- */
 
       console.log(
         'Removing previous document records from Pinecone...'
@@ -1477,16 +1601,7 @@ app.post(
         'Previous document records removed.'
       );
 
-      /*
-        Give Pinecone a short moment to process deletion
-        before inserting the new document.
-      */
-
       await sleep(1000);
-
-      /* ---------------------------------------------------
-         Insert new document
-      --------------------------------------------------- */
 
       const timestamp =
         Date.now();
@@ -1495,12 +1610,9 @@ app.post(
         documentChunks.map(
           (chunk, index) => ({
             id: `doc-${timestamp}-chunk-${index}`,
-
             text: chunk,
-
             filename:
               req.file.originalname,
-
             chunkIndex: index,
           })
         );
@@ -1516,10 +1628,6 @@ app.post(
       console.log(
         'New document successfully stored in Pinecone.'
       );
-
-      /* ---------------------------------------------------
-         Wait for index readiness
-      --------------------------------------------------- */
 
       await waitForIndexToPopulate(
         records.length
@@ -1577,11 +1685,13 @@ app.post(
     );
 
     try {
-      const { query } =
-        req.body;
+      const {
+        query,
+      } = req.body;
 
       if (
-        typeof query !== 'string' ||
+        typeof query !==
+        'string' ||
         !query.trim()
       ) {
         return res.status(400).json({
@@ -1606,8 +1716,10 @@ app.post(
 
       return res.json({
         success: true,
-        answer: result.answer,
-        logs: result.logs,
+        answer:
+          result.answer,
+        logs:
+          result.logs,
         routeUsed:
           result.routeUsed,
         route:
@@ -1665,7 +1777,8 @@ app.get(
     );
 
     const query =
-      typeof req.query.query === 'string'
+      typeof req.query.query ===
+        'string'
         ? req.query.query.trim()
         : '';
 
@@ -1686,7 +1799,7 @@ app.get(
       'Content-Type':
         'text/event-stream',
       'Cache-Control':
-        'no-cache',
+        'no-cache, no-transform',
       Connection:
         'keep-alive',
       'X-Accel-Buffering':
@@ -1704,7 +1817,10 @@ app.get(
       type,
       data
     ) {
-      if (res.writableEnded) {
+      if (
+        res.writableEnded ||
+        res.destroyed
+      ) {
         return;
       }
 
