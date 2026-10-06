@@ -151,51 +151,23 @@ function cleanPlainText(text) {
   }
 
   return String(text)
-    // Remove fenced code blocks
     .replace(/```[\s\S]*?```/g, '')
-
-    // Remove Markdown headings
     .replace(/^\s*#{1,6}\s*/gm, '')
-
-    // Remove bold
     .replace(/\*\*(.*?)\*\*/gs, '$1')
-
-    // Remove italic
     .replace(/(?<!\*)\*(?!\*)(.*?)\*(?!\*)/gs, '$1')
-
-    // Remove underline-style Markdown
     .replace(/__(.*?)__/gs, '$1')
-
-    // Remove inline code
     .replace(/`([^`]+)`/g, '$1')
-
-    // Convert common bullet characters
     .replace(/^\s*[•▪◦]\s*/gm, '- ')
-
-    // Convert Markdown bullets to simple hyphens
     .replace(/^\s*[+*]\s+/gm, '- ')
-
-    // Remove Markdown horizontal rules
     .replace(/^\s*[-*_]{3,}\s*$/gm, '')
-
-    // Remove Markdown table separator rows
     .replace(
       /^\s*\|?[\s:-]+\|[\s|:-]*\s*$/gm,
       ''
     )
-
-    // Remove table pipes
     .replace(/\|/g, ' ')
-
-    // Remove remaining emphasis characters
     .replace(/[*_]+/g, '')
-
-    // Normalize excessive spaces
     .replace(/[ \t]{2,}/g, ' ')
-
-    // Normalize excessive blank lines
     .replace(/\n{3,}/g, '\n\n')
-
     .trim();
 }
 
@@ -1230,10 +1202,6 @@ async function processQuery(
     'Generating a grounded response from the selected evidence.'
   );
 
-  // ----------------------------------------------------
-  // Hard Evidence Gate
-  // ----------------------------------------------------
-
   if (
     finalRoute === 'DOCUMENT' &&
     evidenceEvaluation.relevance ===
@@ -1317,16 +1285,12 @@ async function processQuery(
 
   let verification =
     await verifyAnswerGrounding({
-      query: cleanQuery,
+      query,
       answer,
       documentEvidence,
       webResults,
       route: finalRoute,
     });
-
-  // ----------------------------------------------------
-  // Regenerate once if unsupported claims are detected
-  // ----------------------------------------------------
 
   if (
     !verification.grounded &&
@@ -1348,17 +1312,13 @@ async function processQuery(
 
     verification =
       await verifyAnswerGrounding({
-        query: cleanQuery,
+        query,
         answer,
         documentEvidence,
         webResults,
         route: finalRoute,
       });
   }
-
-  // ----------------------------------------------------
-  // Final safety fallback
-  // ----------------------------------------------------
 
   if (
     !verification.grounded &&
@@ -1582,6 +1542,21 @@ app.post(
       );
 
       // --------------------------------------------------
+      // IMPORTANT:
+      // Remove previous document
+      // --------------------------------------------------
+
+      console.log(
+        'Removing previous document records from Pinecone...'
+      );
+
+      await pineconeIndex.deleteAll();
+
+      console.log(
+        'Previous document records removed.'
+      );
+
+      // --------------------------------------------------
       // Create Pinecone records
       // --------------------------------------------------
 
@@ -1606,7 +1581,7 @@ app.post(
         );
 
       console.log(
-        'Uploading text records to Pinecone...'
+        'Uploading new document to Pinecone...'
       );
 
       await pineconeIndex.upsertRecords({
@@ -1614,7 +1589,7 @@ app.post(
       });
 
       console.log(
-        'Records successfully stored in Pinecone.'
+        'New document successfully stored in Pinecone.'
       );
 
       // --------------------------------------------------
@@ -1982,7 +1957,7 @@ app.listen(
     );
 
     console.log(
-      `Server running on http://localhost:${PORT}`
+      `Server running on port ${PORT}`
     );
 
     console.log(
