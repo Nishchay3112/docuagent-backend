@@ -1518,6 +1518,10 @@ app.post(
         `Extracted ${extractedText.length} characters`
       );
 
+      console.log('\n===== EXTRACTED PDF TEXT =====');
+      console.log(extractedText);
+      console.log('===== END EXTRACTED PDF TEXT =====\n');
+
       if (
         !extractedText.trim()
       ) {
