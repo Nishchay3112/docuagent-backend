@@ -376,7 +376,21 @@ async def upload_pdf(file: UploadFile = File(...)):
 
         return {"success": True, "message": "PDF uploaded and indexed successfully.", "filename": file.filename, "chunks": len(document_chunks), "characters": len(text)}
     except Exception as e:
-        return
+        return JSONResponse(status_code=500, content={"success": False, "error": str(e) or "Failed to process PDF."})
+
+# ---------------------------------------------------------
+# POST /api/query endpoint
+# ---------------------------------------------------------
+@app.post("/api/query")
+async def normal_query(req_data: QueryRequest):
+    try:
+        clean_query = req_data.query.strip()
+        if not clean_query:
+            return JSONResponse(status_code=400, content={"success": False, "error": "Query is required."})
+        result = await process_query(clean_query)
+        return {"success": True, **result}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"success": False, "error": str(e), "logs": []})
 
 @app.get("/api/query/stream")
 async def stream_query(request: Request, query: str = ""):

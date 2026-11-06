@@ -1,6 +1,6 @@
 # Workspace Memory
 This file is maintained automatically by Code Janitor so Claude, Codex, Bob, and any other AI agent can reuse repo context without rescanning everything from scratch.
-Generated: 2026-11-06T22:43:48.359Z
+Generated: 2026-11-06T23:07:07.292Z
 Workspace: backend
 Workspace root: c:\Users\Nishchay\OneDrive\Desktop\Projects\DocuAgent\docuagent-ai\backend
 Refresh reason: tracked-change
@@ -16,11 +16,11 @@ Structured manifest: workspace.json
 - Audience: any AI agent working in this repository can treat this file as the current handoff ledger.
 - Graphify report: not available yet
 - Graphify graph: not available yet
-- Last activity: 2026-11-06T22:43:46.458Z
+- Last activity: 2026-11-06T23:07:05.517Z
 ## Workspace Focus
 - Active file in focus: server.py
-- Hottest files right now: server.py (33), requirements.txt (3), server.js (2)
-- Suggested starting points: server.py, requirements.txt, server.js, .gitignore, package-lock.json, package.json
+- Hottest files right now: server.py (37), requirements.txt (3)
+- Suggested starting points: server.py, requirements.txt, .gitignore, package-lock.json, package.json
 ## Current Workspace
 - Active file: server.py
 - Tracked files in snapshot: 8
@@ -34,19 +34,43 @@ Structured manifest: workspace.json
 - Runtime dependencies: @google/genai, @pinecone-database/pinecone, cors, dotenv, express, groq-sdk, multer, pdf-parse
 - Dev dependencies: nodemon
 ## Current Stack
-- Logged change events: 38
-- Change mix: save (36), create (1), rename (1)
+- Logged change events: 40
+- Change mix: save (38), create (1), rename (1)
 - Remembered file snapshots: 2
 - Working tree summary: 4 modifieds
 ## Tracked Snapshots
-- server.py | 421 lines | 17743 chars | hash 18f76f5227a8
-  Last snapshot: 2026-11-06T22:43:46.458Z
+- server.py | 435 lines | 18492 chars | hash fe45101e66ac
+  Last snapshot: 2026-11-06T23:07:05.517Z
   Preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
 - requirements.txt | 12 lines | 165 chars | hash 1167e52339a0
   Last snapshot: 2026-11-06T22:32:41.753Z
   Preview: "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart"
 
 ## Recent Changes
+### 2026-11-06T23:07:05.517Z | saved | server.py
+- Summary: Line 382: inserted 1 line.
+- Before: 435 lines | 18,490 chars | hash 3eacb999d268 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- After: 435 lines | 18,492 chars | hash fe45101e66ac | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- Current fragment: "#"
+
+### 2026-11-06T23:07:01.858Z | saved | server.py
+- Summary: Line 382: removed 1 line.
+- Before: 435 lines | 18,510 chars | hash c33548a0b90d | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- After: 435 lines | 18,490 chars | hash 3eacb999d268 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- Previous fragment: "# MISSING: Standard"
+
+### 2026-11-06T23:06:54.280Z | saved | server.py
+- Summary: Line 378: inserted 16 lines.
+- Before: 420 lines | 17,705 chars | hash 7ae6dabc9f34 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- After: 435 lines | 18,510 chars | hash c33548a0b90d | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- Current fragment: "except Exception as e: / return JSONResponse(status_code=500, content={"success": False, "error": str(e) or "Failed to process PDF."}) / # --------------------------------------..."
+
+### 2026-11-06T23:06:53.101Z | saved | server.py
+- Summary: Line 378: removed 2 lines.
+- Before: 421 lines | 17,743 chars | hash 18f76f5227a8 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- After: 420 lines | 17,705 chars | hash 7ae6dabc9f34 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+- Previous fragment: "except Exception as e: / return"
+
 ### 2026-11-06T22:43:46.458Z | saved | server.py
 - Summary: Line 379: inserted 43 lines.
 - Before: 379 lines | 16,171 chars | hash 3faaa79b89e2 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
@@ -107,35 +131,14 @@ Structured manifest: workspace.json
 - Before: 399 lines | 16,849 chars | hash f4e1aafef24a | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
 - After: 400 lines | 16,853 chars | hash de7faf3218f1 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
 
-### 2026-11-06T22:21:18.064Z | saved | server.py
-- Summary: Line 135: inserted 1 line.
-- Before: 399 lines | 16,847 chars | hash e52f566a36b7 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-- After: 399 lines | 16,849 chars | hash f4e1aafef24a | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-
-### 2026-11-06T22:21:12.263Z | saved | server.py
-- Summary: Line 132: inserted 1 line.
-- Before: 399 lines | 16,845 chars | hash c7389105e1b0 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-- After: 399 lines | 16,847 chars | hash e52f566a36b7 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-
-### 2026-11-06T22:21:09.434Z | saved | server.py
-- Summary: Line 131: removed 1 line.
-- Before: 399 lines | 16,847 chars | hash a315981ea379 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-- After: 399 lines | 16,845 chars | hash c7389105e1b0 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-
-### 2026-11-06T22:21:00.144Z | saved | server.py
-- Summary: Line 62: removed 1 line.
-- Before: 399 lines | 16,849 chars | hash 35ebee5c31d6 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-- After: 399 lines | 16,847 chars | hash a315981ea379 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-
 
 ## Hot Files
-- server.py (33 tracked changes)
+- server.py (37 tracked changes)
 - requirements.txt (3 tracked changes)
-- server.js (2 tracked changes)
 
 ## Git Snapshot
 - Branch: main
-- HEAD: 2026-11-07 ea63289 Migrated DocuAgent backend to Python FastAPI and LangChain
+- HEAD: 2026-11-07 e9d4551 update code to handle stream api
 - Working tree summary: 4 modifieds
 - M graphify-out/WORKSPACE_MEMORY.md
 - M server.py
@@ -144,13 +147,13 @@ Structured manifest: workspace.json
 
 ## GitHub Snapshot
 GitHub Repository: Nishchay3112/docuagent-backend
-Description: A CRAG system made using react.js and express.js 
+Description: A CRAG system made using react.js and python fast api , langchain
 Visibility: public | Default branch: main
 Stars: 0 | Forks: 0 | Open issues: 0
 
 Latest commit on main:
-- ea63289 by Nishchay on 2026-11-06
-  Migrated DocuAgent backend to Python FastAPI and LangChain
+- e9d4551 by Nishchay on 2026-11-06
+  update code to handle stream api
 
 URL: https://github.com/Nishchay3112/docuagent-backend
 
