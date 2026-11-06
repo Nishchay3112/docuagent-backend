@@ -3,7 +3,7 @@ uvicorn
 python-dotenv
 pydantic
 pypdf
-pinecone-client
+pinecone
 langchain-groq
 langchain-core
 langchain-community

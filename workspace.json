@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T22:24:04.159Z",
-  "generatedAtEpochMs": 1794003844159,
+  "generatedAt": "2026-11-06T22:32:44.892Z",
+  "generatedAtEpochMs": 1794004364892,
   "generator": {
     "name": "Code Janitor",
     "feature": "workspace-memory"
@@ -14,7 +14,7 @@
   "workspace": {
     "name": "backend",
     "root": "c:\\Users\\Nishchay\\OneDrive\\Desktop\\Projects\\DocuAgent\\docuagent-ai\\backend",
-    "activeFile": "server.py",
+    "activeFile": "requirements.txt",
     "refreshReason": "tracked-change",
     "outputFiles": {
       "markdown": "graphify-out/WORKSPACE_MEMORY.md",
@@ -22,8 +22,8 @@
       "structuredManifest": "workspace.json"
     },
     "suggestedStartingPoints": [
-      "server.py",
       "requirements.txt",
+      "server.py",
       "server.js",
       ".gitignore",
       "package-lock.json",
@@ -151,11 +151,11 @@
     }
   },
   "currentStack": {
-    "lastActivityAt": "2026-11-06T22:24:02.234Z",
-    "trackedChangeCount": 35,
+    "lastActivityAt": "2026-11-06T22:32:41.753Z",
+    "trackedChangeCount": 36,
     "trackedFileSnapshotCount": 2,
     "changeTypeCounts": {
-      "save": 33,
+      "save": 34,
       "create": 1,
       "delete": 0,
       "rename": 1
@@ -163,23 +163,55 @@
   },
   "trackedSnapshots": [
     {
+      "filePath": "requirements.txt",
+      "updatedAt": 1794004361753,
+      "lineCount": 12,
+      "charCount": 165,
+      "hash": "1167e52339a0",
+      "preview": "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart"
+    },
+    {
       "filePath": "server.py",
       "updatedAt": 1794003842234,
       "lineCount": 379,
       "charCount": 16171,
       "hash": "3faaa79b89e2",
       "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-    },
-    {
-      "filePath": "requirements.txt",
-      "updatedAt": 1794003485989,
-      "lineCount": 12,
-      "charCount": 172,
-      "hash": "5ddbc72c6143",
-      "preview": "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone-client / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart"
     }
   ],
   "recentChanges": [
+    {
+      "type": "save",
+      "path": "requirements.txt",
+      "toPath": "",
+      "summary": "Line 6: removed 1 line.",
+      "recordedAt": "2026-11-06T22:32:41.753Z",
+      "recordedAtEpochMs": 1794004361753,
+      "before": {
+        "kind": "text",
+        "lineCount": 12,
+        "charCount": 172,
+        "hash": "5ddbc72c6143",
+        "preview": "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone-client / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart",
+        "updatedAt": 1794004361753
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 12,
+        "charCount": 165,
+        "hash": "1167e52339a0",
+        "preview": "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart",
+        "updatedAt": 1794004361753
+      },
+      "diff": {
+        "lineStart": 6,
+        "removedLines": 1,
+        "addedLines": 0,
+        "summary": "Line 6: removed 1 line.",
+        "beforeFragment": "-client",
+        "afterFragment": ""
+      }
+    },
     {
       "type": "save",
       "path": "server.py",
@@ -620,38 +652,6 @@
         "beforeFragment": "",
         "afterFragment": ""
       }
-    },
-    {
-      "type": "save",
-      "path": "server.py",
-      "toPath": "",
-      "summary": "Line 44: removed 1 line.",
-      "recordedAt": "2026-11-06T22:20:45.674Z",
-      "recordedAtEpochMs": 1794003645674,
-      "before": {
-        "kind": "text",
-        "lineCount": 399,
-        "charCount": 16847,
-        "hash": "8314cd8031a5",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003645674
-      },
-      "after": {
-        "kind": "text",
-        "lineCount": 399,
-        "charCount": 16845,
-        "hash": "1f5d1d9f3a32",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003645674
-      },
-      "diff": {
-        "lineStart": 44,
-        "removedLines": 1,
-        "addedLines": 0,
-        "summary": "Line 44: removed 1 line.",
-        "beforeFragment": "",
-        "afterFragment": ""
-      }
     }
   ],
   "hotFiles": [
@@ -661,7 +661,7 @@
     },
     {
       "filePath": "requirements.txt",
-      "count": 2
+      "count": 3
     },
     {
       "filePath": "server.js",
@@ -671,22 +671,17 @@
   "git": {
     "available": true,
     "branch": "main",
-    "headSummary": "2026-10-07 3752a2c Fix query streaming error",
-    "statusSummary": "1 deleted, 5 untrackeds",
-    "changedFileCount": 6,
+    "headSummary": "2026-11-07 d7360ae Migrated DocuAgent backend to Python FastAPI and LangChain",
+    "statusSummary": "1 modified",
+    "changedFileCount": 1,
     "statusLines": [
-      "D server.js",
-      "?? graphify-out/",
-      "?? requirements.txt",
-      "?? server.py",
-      "?? workspace.json",
-      "?? workspacememory.md"
+      "M requirements.txt"
     ],
     "error": ""
   },
   "github": {
     "available": true,
-    "summary": "GitHub Repository: Nishchay3112/docuagent-backend\nDescription: A CRAG system made using react.js and express.js \nVisibility: public | Default branch: main\nStars: 0 | Forks: 0 | Open issues: 0\n\nLatest commit on main:\n- 3752a2c by Nishchay on 2026-10-06\n  Fix query streaming error\n\nURL: https://github.com/Nishchay3112/docuagent-backend"
+    "summary": "GitHub Repository: Nishchay3112/docuagent-backend\nDescription: A CRAG system made using react.js and express.js \nVisibility: public | Default branch: main\nStars: 0 | Forks: 0 | Open issues: 0\n\nLatest commit on main:\n- d7360ae by Nishchay on 2026-11-06\n  Migrated DocuAgent backend to Python FastAPI and LangChain\n\nURL: https://github.com/Nishchay3112/docuagent-backend"
   },
   "graphify": {
     "reportAvailable": false,
