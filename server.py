@@ -29,15 +29,18 @@ MAX_FILE_SIZE = 10 * 1024 * 1024
 
 app = FastAPI()
 
-# FIXED: allow_credentials must be False if allow_origins is ["*"]
+# cors
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False, 
+    allow_origins=[
+        "https://docuagent-frontend.vercel.app",
+        "http://localhost:3000",
+        "http://localhost:5173"
+    ],
+    allow_credentials=True, 
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # =========================================================
 #  CLIENTS & LANGCHAIN SETUP
 # =========================================================
