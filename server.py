@@ -29,10 +29,11 @@ MAX_FILE_SIZE = 10 * 1024 * 1024
 
 app = FastAPI()
 
+# FIXED: allow_credentials must be False if allow_origins is ["*"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False, 
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -375,12 +376,10 @@ async def upload_pdf(file: UploadFile = File(...)):
         await wait_for_index_to_populate(len(records))
 
         return {"success": True, "message": "PDF uploaded and indexed successfully.", "filename": file.filename, "chunks": len(document_chunks), "characters": len(text)}
+    
     except Exception as e:
         return JSONResponse(status_code=500, content={"success": False, "error": str(e) or "Failed to process PDF."})
 
-# ---------------------------------------------------------
-# POST /api/query endpoint
-# ---------------------------------------------------------
 @app.post("/api/query")
 async def normal_query(req_data: QueryRequest):
     try:
@@ -396,7 +395,6 @@ async def normal_query(req_data: QueryRequest):
 async def stream_query(request: Request, query: str = ""):
     clean_query = query.strip()
     if not clean_query:
-        # Fallback to query parameters from Request if needed
         clean_query = request.query_params.get("query", "").strip()
 
     if not clean_query:
@@ -433,3 +431,7 @@ async def stream_query(request: Request, query: str = ""):
             "X-Accel-Buffering": "no",
         },
     )
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=PORT)

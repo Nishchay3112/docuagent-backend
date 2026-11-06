@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T23:07:07.292Z",
-  "generatedAtEpochMs": 1794006427292,
+  "generatedAt": "2026-11-06T23:10:49.866Z",
+  "generatedAtEpochMs": 1794006649866,
   "generator": {
     "name": "Code Janitor",
     "feature": "workspace-memory"
@@ -150,23 +150,23 @@
     }
   },
   "currentStack": {
-    "lastActivityAt": "2026-11-06T23:07:05.517Z",
+    "lastActivityAt": "2026-11-06T23:10:48.063Z",
     "trackedChangeCount": 40,
     "trackedFileSnapshotCount": 2,
     "changeTypeCounts": {
-      "save": 38,
+      "save": 39,
       "create": 1,
       "delete": 0,
-      "rename": 1
+      "rename": 0
     }
   },
   "trackedSnapshots": [
     {
       "filePath": "server.py",
-      "updatedAt": 1794006425517,
-      "lineCount": 435,
-      "charCount": 18492,
-      "hash": "fe45101e66ac",
+      "updatedAt": 1794006648063,
+      "lineCount": 437,
+      "charCount": 18454,
+      "hash": "035744db7f04",
       "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
     },
     {
@@ -179,6 +179,38 @@
     }
   ],
   "recentChanges": [
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 32: replaced 404 lines with 406 lines.",
+      "recordedAt": "2026-11-06T23:10:48.063Z",
+      "recordedAtEpochMs": 1794006648063,
+      "before": {
+        "kind": "text",
+        "lineCount": 435,
+        "charCount": 18492,
+        "hash": "fe45101e66ac",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794006648063
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 437,
+        "charCount": 18454,
+        "hash": "035744db7f04",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794006648063
+      },
+      "diff": {
+        "lineStart": 32,
+        "removedLines": 404,
+        "addedLines": 406,
+        "summary": "Line 32: replaced 404 lines with 406 lines.",
+        "beforeFragment": "app.add_middleware( / CORSMiddleware, / allow_origins=[\"*\"], / allow_credentials=True, / allow_methods=[\"*\"], / allow_headers=[\"*\"], / ) / # ====================================...",
+        "afterFragment": "# FIXED: allow_credentials must be False if allow_origins is [\"*\"] / app.add_middleware( / CORSMiddleware, / allow_origins=[\"*\"], / allow_credentials=False, / allow_methods=[\"*\"..."
+      }
+    },
     {
       "type": "save",
       "path": "server.py",
@@ -612,38 +644,6 @@
         "beforeFragment": "",
         "afterFragment": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware..."
       }
-    },
-    {
-      "type": "save",
-      "path": "server.py",
-      "toPath": "",
-      "summary": "Line 151: inserted 2 lines.",
-      "recordedAt": "2026-11-06T22:21:24.828Z",
-      "recordedAtEpochMs": 1794003684828,
-      "before": {
-        "kind": "text",
-        "lineCount": 399,
-        "charCount": 16849,
-        "hash": "f4e1aafef24a",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003684828
-      },
-      "after": {
-        "kind": "text",
-        "lineCount": 400,
-        "charCount": 16853,
-        "hash": "de7faf3218f1",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003684828
-      },
-      "diff": {
-        "lineStart": 151,
-        "removedLines": 0,
-        "addedLines": 2,
-        "summary": "Line 151: inserted 2 lines.",
-        "beforeFragment": "",
-        "afterFragment": ""
-      }
     }
   ],
   "hotFiles": [
@@ -659,14 +659,11 @@
   "git": {
     "available": true,
     "branch": "main",
-    "headSummary": "2026-11-07 e9d4551 update code to handle stream api",
-    "statusSummary": "4 modifieds",
-    "changedFileCount": 4,
+    "headSummary": "2026-11-07 43fcaa8 updated code",
+    "statusSummary": "1 modified",
+    "changedFileCount": 1,
     "statusLines": [
-      "M graphify-out/WORKSPACE_MEMORY.md",
-      "M server.py",
-      "M workspace.json",
-      "M workspacememory.md"
+      "M server.py"
     ],
     "error": ""
   },
