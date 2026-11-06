@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T23:14:18.716Z",
-  "generatedAtEpochMs": 1794006858716,
+  "generatedAt": "2026-11-06T23:27:24.413Z",
+  "generatedAtEpochMs": 1794007644413,
   "generator": {
     "name": "Code Janitor",
     "feature": "workspace-memory"
@@ -14,7 +14,7 @@
   "workspace": {
     "name": "backend",
     "root": "c:\\Users\\Nishchay\\OneDrive\\Desktop\\Projects\\DocuAgent\\docuagent-ai\\backend",
-    "activeFile": "server.py",
+    "activeFile": "requirements.txt",
     "refreshReason": "tracked-change",
     "outputFiles": {
       "markdown": "graphify-out/WORKSPACE_MEMORY.md",
@@ -22,8 +22,8 @@
       "structuredManifest": "workspace.json"
     },
     "suggestedStartingPoints": [
-      "server.py",
       "requirements.txt",
+      "server.py",
       ".gitignore",
       "package-lock.json",
       "package.json"
@@ -150,7 +150,7 @@
     }
   },
   "currentStack": {
-    "lastActivityAt": "2026-11-06T23:14:16.851Z",
+    "lastActivityAt": "2026-11-06T23:27:22.203Z",
     "trackedChangeCount": 40,
     "trackedFileSnapshotCount": 2,
     "changeTypeCounts": {
@@ -162,23 +162,87 @@
   },
   "trackedSnapshots": [
     {
-      "filePath": "server.py",
-      "updatedAt": 1794006856851,
-      "lineCount": 440,
-      "charCount": 18511,
-      "hash": "0e2200ba20ee",
-      "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+      "filePath": "requirements.txt",
+      "updatedAt": 1794007642203,
+      "lineCount": 11,
+      "charCount": 175,
+      "hash": "29f2f6089aa5",
+      "preview": "fastapi / uvicorn[standard] / python-multipart / python-dotenv / pydantic>=2 / pypdf / pinecone>=6.0.0 / langchain-core / langchain-groq / langchain-community / langchain-text-splitters"
     },
     {
-      "filePath": "requirements.txt",
-      "updatedAt": 1794004361753,
-      "lineCount": 12,
-      "charCount": 165,
-      "hash": "1167e52339a0",
-      "preview": "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart"
+      "filePath": "server.py",
+      "updatedAt": 1794007610838,
+      "lineCount": 652,
+      "charCount": 25629,
+      "hash": "bd8e5f79f4b7",
+      "preview": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas..."
     }
   ],
   "recentChanges": [
+    {
+      "type": "save",
+      "path": "requirements.txt",
+      "toPath": "",
+      "summary": "Line 2: replaced 11 lines with 10 lines.",
+      "recordedAt": "2026-11-06T23:27:22.203Z",
+      "recordedAtEpochMs": 1794007642203,
+      "before": {
+        "kind": "text",
+        "lineCount": 12,
+        "charCount": 165,
+        "hash": "1167e52339a0",
+        "preview": "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart",
+        "updatedAt": 1794007642203
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 11,
+        "charCount": 175,
+        "hash": "29f2f6089aa5",
+        "preview": "fastapi / uvicorn[standard] / python-multipart / python-dotenv / pydantic>=2 / pypdf / pinecone>=6.0.0 / langchain-core / langchain-groq / langchain-community / langchain-text-splitters",
+        "updatedAt": 1794007642203
+      },
+      "diff": {
+        "lineStart": 2,
+        "removedLines": 11,
+        "addedLines": 10,
+        "summary": "Line 2: replaced 11 lines with 10 lines.",
+        "beforeFragment": "python-dotenv / pydantic / pypdf / pinecone / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart",
+        "afterFragment": "[standard] / python-multipart / python-dotenv / pydantic>=2 / pypdf / pinecone>=6.0.0 / langchain-core / langchain-groq / langchain-community / langchain-text-splitters"
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 5: replaced 432 lines with 644 lines.",
+      "recordedAt": "2026-11-06T23:26:50.838Z",
+      "recordedAtEpochMs": 1794007610838,
+      "before": {
+        "kind": "text",
+        "lineCount": 440,
+        "charCount": 18511,
+        "hash": "0e2200ba20ee",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794007610837
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 652,
+        "charCount": 25629,
+        "hash": "bd8e5f79f4b7",
+        "preview": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas...",
+        "updatedAt": 1794007610838
+      },
+      "diff": {
+        "lineStart": 5,
+        "removedLines": 432,
+        "addedLines": 644,
+        "summary": "Line 5: replaced 432 lines with 644 lines.",
+        "beforeFragment": "from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fastapi.responses impo...",
+        "afterFragment": "import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.c..."
+      }
+    },
     {
       "type": "save",
       "path": "server.py",
@@ -587,83 +651,27 @@
         "beforeFragment": "",
         "afterFragment": ""
       }
-    },
-    {
-      "type": "save",
-      "path": "server.py",
-      "toPath": "",
-      "summary": "Saved without a textual diff.",
-      "recordedAt": "2026-11-06T22:21:35.807Z",
-      "recordedAtEpochMs": 1794003695807,
-      "before": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16857,
-        "hash": "4d9045cea9c9",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003695806
-      },
-      "after": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16857,
-        "hash": "4d9045cea9c9",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003695807
-      },
-      "diff": null
-    },
-    {
-      "type": "save",
-      "path": "server.py",
-      "toPath": "",
-      "summary": "Line 148: removed 1 line.",
-      "recordedAt": "2026-11-06T22:21:33.732Z",
-      "recordedAtEpochMs": 1794003693732,
-      "before": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16861,
-        "hash": "2d4f4a67a159",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003693732
-      },
-      "after": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16859,
-        "hash": "d91d896d1b82",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003693732
-      },
-      "diff": {
-        "lineStart": 148,
-        "removedLines": 1,
-        "addedLines": 0,
-        "summary": "Line 148: removed 1 line.",
-        "beforeFragment": "",
-        "afterFragment": ""
-      }
     }
   ],
   "hotFiles": [
     {
       "filePath": "server.py",
-      "count": 37
+      "count": 36
     },
     {
       "filePath": "requirements.txt",
-      "count": 3
+      "count": 4
     }
   ],
   "git": {
     "available": true,
     "branch": "main",
-    "headSummary": "2026-11-07 e4fd4bf updated code",
-    "statusSummary": "4 modifieds",
-    "changedFileCount": 4,
+    "headSummary": "2026-11-07 d28aa84 changes made",
+    "statusSummary": "5 modifieds",
+    "changedFileCount": 5,
     "statusLines": [
       "M graphify-out/WORKSPACE_MEMORY.md",
+      "M requirements.txt",
       "M server.py",
       "M workspace.json",
       "M workspacememory.md"
@@ -672,7 +680,7 @@
   },
   "github": {
     "available": true,
-    "summary": "GitHub Repository: Nishchay3112/docuagent-backend\nDescription: A CRAG system made using react.js and python fast api , langchain\nVisibility: public | Default branch: main\nStars: 0 | Forks: 0 | Open issues: 0\n\nLatest commit on main:\n- e4fd4bf by Nishchay on 2026-11-06\n  updated code\n\nURL: https://github.com/Nishchay3112/docuagent-backend"
+    "summary": "GitHub Repository: Nishchay3112/docuagent-backend\nDescription: A CRAG system made using react.js and python fast api , langchain\nVisibility: public | Default branch: main\nStars: 0 | Forks: 0 | Open issues: 0\n\nLatest commit on main:\n- d28aa84 by Nishchay on 2026-11-06\n  changes made\n\nURL: https://github.com/Nishchay3112/docuagent-backend"
   },
   "graphify": {
     "reportAvailable": false,
