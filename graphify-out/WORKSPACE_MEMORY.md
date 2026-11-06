@@ -1,6 +1,6 @@
 # Workspace Memory
 This file is maintained automatically by Code Janitor so Claude, Codex, Bob, and any other AI agent can reuse repo context without rescanning everything from scratch.
-Generated: 2026-11-06T23:27:24.413Z
+Generated: 2026-11-06T23:31:10.074Z
 Workspace: backend
 Workspace root: c:\Users\Nishchay\OneDrive\Desktop\Projects\DocuAgent\docuagent-ai\backend
 Refresh reason: tracked-change
@@ -16,13 +16,13 @@ Structured manifest: workspace.json
 - Audience: any AI agent working in this repository can treat this file as the current handoff ledger.
 - Graphify report: not available yet
 - Graphify graph: not available yet
-- Last activity: 2026-11-06T23:27:22.203Z
+- Last activity: 2026-11-06T23:31:06.873Z
 ## Workspace Focus
-- Active file in focus: requirements.txt
+- Active file in focus: server.py
 - Hottest files right now: server.py (36), requirements.txt (4)
-- Suggested starting points: requirements.txt, server.py, .gitignore, package-lock.json, package.json
+- Suggested starting points: server.py, requirements.txt, .gitignore, package-lock.json, package.json
 ## Current Workspace
-- Active file: requirements.txt
+- Active file: server.py
 - Tracked files in snapshot: 8
 - Top-level areas: [root] (8)
 - Primary file types: .json (3), [no extension] (2), .md (1), .py (1), .txt (1)
@@ -37,16 +37,28 @@ Structured manifest: workspace.json
 - Logged change events: 40
 - Change mix: save (39), create (1)
 - Remembered file snapshots: 2
-- Working tree summary: 5 modifieds
+- Working tree summary: 1 modified
 ## Tracked Snapshots
+- server.py | 656 lines | 25714 chars | hash c334e0fc87a9
+  Last snapshot: 2026-11-06T23:31:06.873Z
+  Preview: "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas..."
 - requirements.txt | 11 lines | 175 chars | hash 29f2f6089aa5
   Last snapshot: 2026-11-06T23:27:22.203Z
   Preview: "fastapi / uvicorn[standard] / python-multipart / python-dotenv / pydantic>=2 / pypdf / pinecone>=6.0.0 / langchain-core / langchain-groq / langchain-community / langchain-text-splitters"
-- server.py | 652 lines | 25629 chars | hash bd8e5f79f4b7
-  Last snapshot: 2026-11-06T23:26:50.838Z
-  Preview: "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas..."
 
 ## Recent Changes
+### 2026-11-06T23:31:06.873Z | saved | server.py
+- Summary: Line 1: inserted 656 lines.
+- Before: 0 lines | 0 chars | hash empty
+- After: 656 lines | 25,714 chars | hash c334e0fc87a9 | preview: "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas..."
+- Current fragment: "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile,..."
+
+### 2026-11-06T23:31:05.599Z | saved | server.py
+- Summary: Line 1: removed 652 lines.
+- Before: 652 lines | 25,629 chars | hash bd8e5f79f4b7 | preview: "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas..."
+- After: 0 lines | 0 chars | hash empty
+- Previous fragment: "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile,..."
+
 ### 2026-11-06T23:27:22.203Z | saved | requirements.txt
 - Summary: Line 2: replaced 11 lines with 10 lines.
 - Before: 12 lines | 165 chars | hash 1167e52339a0 | preview: "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart"
@@ -130,16 +142,6 @@ Structured manifest: workspace.json
 - Previous fragment: "'PORT', 5000)) / GROQ_MODEL = 'openai/gpt-oss-20b' / PINECONE_INDEX_NAME = 'docuagent-index' / PINECONE_TOP_K = 8 / MAX_WEB_RESULTS = 5 / MAX_FILE_SIZE = 10 * 1024 * 1024 / app..."
 - Current fragment: ""PORT", 5000)) / GROQ_MODEL = "openai/gpt-oss-20b" / PINECONE_INDEX_NAME = "docuagent-index" / PINECONE_TOP_K = 8 / MAX_WEB_RESULTS = 5 / MAX_FILE_SIZE = 10 * 1024 * 1024 / app..."
 
-### 2026-11-06T22:21:40.753Z | saved | server.py
-- Summary: Line 153: inserted 1 line.
-- Before: 401 lines | 16,855 chars | hash 7f840a75afca | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-- After: 401 lines | 16,857 chars | hash bf9ce563bd5f | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-
-### 2026-11-06T22:21:37.532Z | saved | server.py
-- Summary: Line 152: removed 1 line.
-- Before: 401 lines | 16,857 chars | hash 4d9045cea9c9 | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-- After: 401 lines | 16,855 chars | hash 7f840a75afca | preview: "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
-
 
 ## Hot Files
 - server.py (36 tracked changes)
@@ -147,13 +149,9 @@ Structured manifest: workspace.json
 
 ## Git Snapshot
 - Branch: main
-- HEAD: 2026-11-07 d28aa84 changes made
-- Working tree summary: 5 modifieds
-- M graphify-out/WORKSPACE_MEMORY.md
-- M requirements.txt
+- HEAD: 2026-11-07 2023c49 backend code updated
+- Working tree summary: 1 modified
 - M server.py
-- M workspace.json
-- M workspacememory.md
 
 ## GitHub Snapshot
 GitHub Repository: Nishchay3112/docuagent-backend
@@ -162,8 +160,8 @@ Visibility: public | Default branch: main
 Stars: 0 | Forks: 0 | Open issues: 0
 
 Latest commit on main:
-- d28aa84 by Nishchay on 2026-11-06
-  changes made
+- 2023c49 by Nishchay on 2026-11-06
+  backend code updated
 
 URL: https://github.com/Nishchay3112/docuagent-backend
 

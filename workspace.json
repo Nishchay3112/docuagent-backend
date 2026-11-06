@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T23:27:24.413Z",
-  "generatedAtEpochMs": 1794007644413,
+  "generatedAt": "2026-11-06T23:31:10.074Z",
+  "generatedAtEpochMs": 1794007870074,
   "generator": {
     "name": "Code Janitor",
     "feature": "workspace-memory"
@@ -14,7 +14,7 @@
   "workspace": {
     "name": "backend",
     "root": "c:\\Users\\Nishchay\\OneDrive\\Desktop\\Projects\\DocuAgent\\docuagent-ai\\backend",
-    "activeFile": "requirements.txt",
+    "activeFile": "server.py",
     "refreshReason": "tracked-change",
     "outputFiles": {
       "markdown": "graphify-out/WORKSPACE_MEMORY.md",
@@ -22,8 +22,8 @@
       "structuredManifest": "workspace.json"
     },
     "suggestedStartingPoints": [
-      "requirements.txt",
       "server.py",
+      "requirements.txt",
       ".gitignore",
       "package-lock.json",
       "package.json"
@@ -150,7 +150,7 @@
     }
   },
   "currentStack": {
-    "lastActivityAt": "2026-11-06T23:27:22.203Z",
+    "lastActivityAt": "2026-11-06T23:31:06.873Z",
     "trackedChangeCount": 40,
     "trackedFileSnapshotCount": 2,
     "changeTypeCounts": {
@@ -162,23 +162,87 @@
   },
   "trackedSnapshots": [
     {
+      "filePath": "server.py",
+      "updatedAt": 1794007866873,
+      "lineCount": 656,
+      "charCount": 25714,
+      "hash": "c334e0fc87a9",
+      "preview": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas..."
+    },
+    {
       "filePath": "requirements.txt",
       "updatedAt": 1794007642203,
       "lineCount": 11,
       "charCount": 175,
       "hash": "29f2f6089aa5",
       "preview": "fastapi / uvicorn[standard] / python-multipart / python-dotenv / pydantic>=2 / pypdf / pinecone>=6.0.0 / langchain-core / langchain-groq / langchain-community / langchain-text-splitters"
-    },
-    {
-      "filePath": "server.py",
-      "updatedAt": 1794007610838,
-      "lineCount": 652,
-      "charCount": 25629,
-      "hash": "bd8e5f79f4b7",
-      "preview": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas..."
     }
   ],
   "recentChanges": [
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 1: inserted 656 lines.",
+      "recordedAt": "2026-11-06T23:31:06.873Z",
+      "recordedAtEpochMs": 1794007866873,
+      "before": {
+        "kind": "text",
+        "lineCount": 0,
+        "charCount": 0,
+        "hash": "empty",
+        "preview": "",
+        "updatedAt": 1794007866873
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 656,
+        "charCount": 25714,
+        "hash": "c334e0fc87a9",
+        "preview": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas...",
+        "updatedAt": 1794007866873
+      },
+      "diff": {
+        "lineStart": 1,
+        "removedLines": 0,
+        "addedLines": 656,
+        "summary": "Line 1: inserted 656 lines.",
+        "beforeFragment": "",
+        "afterFragment": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile,..."
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 1: removed 652 lines.",
+      "recordedAt": "2026-11-06T23:31:05.599Z",
+      "recordedAtEpochMs": 1794007865599,
+      "before": {
+        "kind": "text",
+        "lineCount": 652,
+        "charCount": 25629,
+        "hash": "bd8e5f79f4b7",
+        "preview": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fas...",
+        "updatedAt": 1794007865599
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 0,
+        "charCount": 0,
+        "hash": "empty",
+        "preview": "",
+        "updatedAt": 1794007865599
+      },
+      "diff": {
+        "lineStart": 1,
+        "removedLines": 652,
+        "addedLines": 0,
+        "summary": "Line 1: removed 652 lines.",
+        "beforeFragment": "import os / import time / import json / import asyncio / import traceback / from io import BytesIO / from urllib.parse import urlparse / from fastapi import FastAPI, UploadFile,...",
+        "afterFragment": ""
+      }
+    },
     {
       "type": "save",
       "path": "requirements.txt",
@@ -587,70 +651,6 @@
         "beforeFragment": "'PORT', 5000)) / GROQ_MODEL = 'openai/gpt-oss-20b' / PINECONE_INDEX_NAME = 'docuagent-index' / PINECONE_TOP_K = 8 / MAX_WEB_RESULTS = 5 / MAX_FILE_SIZE = 10 * 1024 * 1024 / app...",
         "afterFragment": "\"PORT\", 5000)) / GROQ_MODEL = \"openai/gpt-oss-20b\" / PINECONE_INDEX_NAME = \"docuagent-index\" / PINECONE_TOP_K = 8 / MAX_WEB_RESULTS = 5 / MAX_FILE_SIZE = 10 * 1024 * 1024 / app..."
       }
-    },
-    {
-      "type": "save",
-      "path": "server.py",
-      "toPath": "",
-      "summary": "Line 153: inserted 1 line.",
-      "recordedAt": "2026-11-06T22:21:40.753Z",
-      "recordedAtEpochMs": 1794003700753,
-      "before": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16855,
-        "hash": "7f840a75afca",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003700753
-      },
-      "after": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16857,
-        "hash": "bf9ce563bd5f",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003700753
-      },
-      "diff": {
-        "lineStart": 153,
-        "removedLines": 0,
-        "addedLines": 1,
-        "summary": "Line 153: inserted 1 line.",
-        "beforeFragment": "",
-        "afterFragment": ""
-      }
-    },
-    {
-      "type": "save",
-      "path": "server.py",
-      "toPath": "",
-      "summary": "Line 152: removed 1 line.",
-      "recordedAt": "2026-11-06T22:21:37.532Z",
-      "recordedAtEpochMs": 1794003697532,
-      "before": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16857,
-        "hash": "4d9045cea9c9",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003697532
-      },
-      "after": {
-        "kind": "text",
-        "lineCount": 401,
-        "charCount": 16855,
-        "hash": "7f840a75afca",
-        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
-        "updatedAt": 1794003697532
-      },
-      "diff": {
-        "lineStart": 152,
-        "removedLines": 1,
-        "addedLines": 0,
-        "summary": "Line 152: removed 1 line.",
-        "beforeFragment": "",
-        "afterFragment": ""
-      }
     }
   ],
   "hotFiles": [
@@ -666,21 +666,17 @@
   "git": {
     "available": true,
     "branch": "main",
-    "headSummary": "2026-11-07 d28aa84 changes made",
-    "statusSummary": "5 modifieds",
-    "changedFileCount": 5,
+    "headSummary": "2026-11-07 2023c49 backend code updated",
+    "statusSummary": "1 modified",
+    "changedFileCount": 1,
     "statusLines": [
-      "M graphify-out/WORKSPACE_MEMORY.md",
-      "M requirements.txt",
-      "M server.py",
-      "M workspace.json",
-      "M workspacememory.md"
+      "M server.py"
     ],
     "error": ""
   },
   "github": {
     "available": true,
-    "summary": "GitHub Repository: Nishchay3112/docuagent-backend\nDescription: A CRAG system made using react.js and python fast api , langchain\nVisibility: public | Default branch: main\nStars: 0 | Forks: 0 | Open issues: 0\n\nLatest commit on main:\n- d28aa84 by Nishchay on 2026-11-06\n  changes made\n\nURL: https://github.com/Nishchay3112/docuagent-backend"
+    "summary": "GitHub Repository: Nishchay3112/docuagent-backend\nDescription: A CRAG system made using react.js and python fast api , langchain\nVisibility: public | Default branch: main\nStars: 0 | Forks: 0 | Open issues: 0\n\nLatest commit on main:\n- 2023c49 by Nishchay on 2026-11-06\n  backend code updated\n\nURL: https://github.com/Nishchay3112/docuagent-backend"
   },
   "graphify": {
     "reportAvailable": false,

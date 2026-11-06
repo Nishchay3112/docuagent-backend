@@ -564,7 +564,11 @@ async def upload_pdf(file: UploadFile = File(...)):
 
         for i in range(0, len(records), UPSERT_BATCH_SIZE):
             batch = records[i:i + UPSERT_BATCH_SIZE]
-            await asyncio.to_thread(pinecone_index.upsert_records, NAMESPACE, batch)
+            await asyncio.to_thread(
+                pinecone_index.upsert_records,
+                namespace=NAMESPACE,
+                records=batch,
+            )
 
         indexed = await wait_for_index_to_populate(len(records))
 
