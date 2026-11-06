@@ -377,3 +377,45 @@ async def upload_pdf(file: UploadFile = File(...)):
         return {"success": True, "message": "PDF uploaded and indexed successfully.", "filename": file.filename, "chunks": len(document_chunks), "characters": len(text)}
     except Exception as e:
         return
+
+@app.get("/api/query/stream")
+async def stream_query(request: Request, query: str = ""):
+    clean_query = query.strip()
+    if not clean_query:
+        # Fallback to query parameters from Request if needed
+        clean_query = request.query_params.get("query", "").strip()
+
+    if not clean_query:
+        raise HTTPException(status_code=400, detail="Query is required.")
+
+    queue = asyncio.Queue()
+
+    async def run_process():
+        try:
+            result = await process_query(clean_query, lambda s: queue.put_nowait(("stage", s)))
+            await queue.put(("result", {"success": True, **result}))
+            await queue.put(("complete", {"message": "Agent execution completed."}))
+        except Exception as e:
+            await queue.put(("error", {"success": False, "error": str(e) or "Failed to process query."}))
+        finally:
+            await queue.put((None, None))
+
+    asyncio.create_task(run_process())
+
+    async def event_generator():
+        yield f"event: connected\ndata: {json.dumps({'message': 'Agent execution started.'})}\n\n"
+        while True:
+            event_type, data = await queue.get()
+            if event_type is None:
+                break
+            yield f"event: {event_type}\ndata: {json.dumps(data)}\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache, no-transform",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
