@@ -1,0 +1,704 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-06T22:24:04.159Z",
+  "generatedAtEpochMs": 1794003844159,
+  "generator": {
+    "name": "Code Janitor",
+    "feature": "workspace-memory"
+  },
+  "handoffGuidance": [
+    "Read graphify-out/GRAPH_REPORT.md first for architecture and dependency questions.",
+    "Use workspace.json for machine-readable repo context before scanning broad parts of the repository.",
+    "Use graphify-out/WORKSPACE_MEMORY.md and workspacememory.md for human-readable handoff notes, recent changes, and Git-aware status."
+  ],
+  "workspace": {
+    "name": "backend",
+    "root": "c:\\Users\\Nishchay\\OneDrive\\Desktop\\Projects\\DocuAgent\\docuagent-ai\\backend",
+    "activeFile": "server.py",
+    "refreshReason": "tracked-change",
+    "outputFiles": {
+      "markdown": "graphify-out/WORKSPACE_MEMORY.md",
+      "markdownMirror": "workspacememory.md",
+      "structuredManifest": "workspace.json"
+    },
+    "suggestedStartingPoints": [
+      "server.py",
+      "requirements.txt",
+      "server.js",
+      ".gitignore",
+      "package-lock.json",
+      "package.json"
+    ],
+    "stats": {
+      "totalFiles": 8,
+      "topLevelAreas": [
+        {
+          "name": "[root]",
+          "count": 8
+        }
+      ],
+      "primaryFileTypes": [
+        {
+          "name": ".json",
+          "count": 3
+        },
+        {
+          "name": "[no extension]",
+          "count": 2
+        },
+        {
+          "name": ".md",
+          "count": 1
+        },
+        {
+          "name": ".py",
+          "count": 1
+        },
+        {
+          "name": ".txt",
+          "count": 1
+        }
+      ],
+      "keyFiles": [
+        ".gitignore",
+        "package-lock.json",
+        "package.json"
+      ],
+      "fileInventory": [
+        {
+          "path": ".env",
+          "topLevelArea": "[root]",
+          "extension": "[no extension]",
+          "isKeyFile": false
+        },
+        {
+          "path": ".gitignore",
+          "topLevelArea": "[root]",
+          "extension": "[no extension]",
+          "isKeyFile": true
+        },
+        {
+          "path": "package-lock.json",
+          "topLevelArea": "[root]",
+          "extension": ".json",
+          "isKeyFile": true
+        },
+        {
+          "path": "package.json",
+          "topLevelArea": "[root]",
+          "extension": ".json",
+          "isKeyFile": true
+        },
+        {
+          "path": "requirements.txt",
+          "topLevelArea": "[root]",
+          "extension": ".txt",
+          "isKeyFile": false
+        },
+        {
+          "path": "server.py",
+          "topLevelArea": "[root]",
+          "extension": ".py",
+          "isKeyFile": false
+        },
+        {
+          "path": "workspace.json",
+          "topLevelArea": "[root]",
+          "extension": ".json",
+          "isKeyFile": false
+        },
+        {
+          "path": "workspacememory.md",
+          "topLevelArea": "[root]",
+          "extension": ".md",
+          "isKeyFile": false
+        }
+      ]
+    }
+  },
+  "package": {
+    "available": true,
+    "name": "backend",
+    "displayName": "",
+    "version": "1.0.0",
+    "description": "",
+    "license": "ISC",
+    "homepage": "",
+    "packageManager": "",
+    "main": "index.js",
+    "repository": {
+      "type": "",
+      "url": ""
+    },
+    "bugsUrl": "",
+    "engines": {},
+    "keywords": [],
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "@google/genai": "^2.27.0",
+      "@pinecone-database/pinecone": "^9.0.0",
+      "cors": "^2.8.6",
+      "dotenv": "^18.0.5",
+      "express": "^5.2.1",
+      "groq-sdk": "^1.6.0",
+      "multer": "^2.4.0",
+      "pdf-parse": "^2.4.5"
+    },
+    "devDependencies": {
+      "nodemon": "^3.1.14"
+    }
+  },
+  "currentStack": {
+    "lastActivityAt": "2026-11-06T22:24:02.234Z",
+    "trackedChangeCount": 35,
+    "trackedFileSnapshotCount": 2,
+    "changeTypeCounts": {
+      "save": 33,
+      "create": 1,
+      "delete": 0,
+      "rename": 1
+    }
+  },
+  "trackedSnapshots": [
+    {
+      "filePath": "server.py",
+      "updatedAt": 1794003842234,
+      "lineCount": 379,
+      "charCount": 16171,
+      "hash": "3faaa79b89e2",
+      "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta..."
+    },
+    {
+      "filePath": "requirements.txt",
+      "updatedAt": 1794003485989,
+      "lineCount": 12,
+      "charCount": 172,
+      "hash": "5ddbc72c6143",
+      "preview": "fastapi / uvicorn / python-dotenv / pydantic / pypdf / pinecone-client / langchain-groq / langchain-core / langchain-community / langchain-text-splitters / requests / python-multipart"
+    }
+  ],
+  "recentChanges": [
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 22: replaced 380 lines with 358 lines.",
+      "recordedAt": "2026-11-06T22:24:02.234Z",
+      "recordedAtEpochMs": 1794003842234,
+      "before": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16857,
+        "hash": "bf9ce563bd5f",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003842233
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 379,
+        "charCount": 16171,
+        "hash": "3faaa79b89e2",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003842234
+      },
+      "diff": {
+        "lineStart": 22,
+        "removedLines": 380,
+        "addedLines": 358,
+        "summary": "Line 22: replaced 380 lines with 358 lines.",
+        "beforeFragment": "'PORT', 5000)) / GROQ_MODEL = 'openai/gpt-oss-20b' / PINECONE_INDEX_NAME = 'docuagent-index' / PINECONE_TOP_K = 8 / MAX_WEB_RESULTS = 5 / MAX_FILE_SIZE = 10 * 1024 * 1024 / app...",
+        "afterFragment": "\"PORT\", 5000)) / GROQ_MODEL = \"openai/gpt-oss-20b\" / PINECONE_INDEX_NAME = \"docuagent-index\" / PINECONE_TOP_K = 8 / MAX_WEB_RESULTS = 5 / MAX_FILE_SIZE = 10 * 1024 * 1024 / app..."
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 153: inserted 1 line.",
+      "recordedAt": "2026-11-06T22:21:40.753Z",
+      "recordedAtEpochMs": 1794003700753,
+      "before": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16855,
+        "hash": "7f840a75afca",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003700753
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16857,
+        "hash": "bf9ce563bd5f",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003700753
+      },
+      "diff": {
+        "lineStart": 153,
+        "removedLines": 0,
+        "addedLines": 1,
+        "summary": "Line 153: inserted 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 152: removed 1 line.",
+      "recordedAt": "2026-11-06T22:21:37.532Z",
+      "recordedAtEpochMs": 1794003697532,
+      "before": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16857,
+        "hash": "4d9045cea9c9",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003697532
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16855,
+        "hash": "7f840a75afca",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003697532
+      },
+      "diff": {
+        "lineStart": 152,
+        "removedLines": 1,
+        "addedLines": 0,
+        "summary": "Line 152: removed 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Saved without a textual diff.",
+      "recordedAt": "2026-11-06T22:21:35.807Z",
+      "recordedAtEpochMs": 1794003695807,
+      "before": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16857,
+        "hash": "4d9045cea9c9",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003695806
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16857,
+        "hash": "4d9045cea9c9",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003695807
+      },
+      "diff": null
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 148: removed 1 line.",
+      "recordedAt": "2026-11-06T22:21:33.732Z",
+      "recordedAtEpochMs": 1794003693732,
+      "before": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16861,
+        "hash": "2d4f4a67a159",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003693732
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16859,
+        "hash": "d91d896d1b82",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003693732
+      },
+      "diff": {
+        "lineStart": 148,
+        "removedLines": 1,
+        "addedLines": 0,
+        "summary": "Line 148: removed 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 150: inserted 2 lines.",
+      "recordedAt": "2026-11-06T22:21:29.621Z",
+      "recordedAtEpochMs": 1794003689621,
+      "before": {
+        "kind": "text",
+        "lineCount": 400,
+        "charCount": 16855,
+        "hash": "a0c51ee85e00",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003689621
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 401,
+        "charCount": 16861,
+        "hash": "2d4f4a67a159",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003689621
+      },
+      "diff": {
+        "lineStart": 150,
+        "removedLines": 0,
+        "addedLines": 2,
+        "summary": "Line 150: inserted 2 lines.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 1: inserted 400 lines.",
+      "recordedAt": "2026-11-06T22:21:27.160Z",
+      "recordedAtEpochMs": 1794003687160,
+      "before": {
+        "kind": "text",
+        "lineCount": 0,
+        "charCount": 0,
+        "hash": "empty",
+        "preview": "",
+        "updatedAt": 1794003687160
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 400,
+        "charCount": 16855,
+        "hash": "a0c51ee85e00",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003687160
+      },
+      "diff": {
+        "lineStart": 1,
+        "removedLines": 0,
+        "addedLines": 400,
+        "summary": "Line 1: inserted 400 lines.",
+        "beforeFragment": "",
+        "afterFragment": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware..."
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 151: inserted 2 lines.",
+      "recordedAt": "2026-11-06T22:21:24.828Z",
+      "recordedAtEpochMs": 1794003684828,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16849,
+        "hash": "f4e1aafef24a",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003684828
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 400,
+        "charCount": 16853,
+        "hash": "de7faf3218f1",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003684828
+      },
+      "diff": {
+        "lineStart": 151,
+        "removedLines": 0,
+        "addedLines": 2,
+        "summary": "Line 151: inserted 2 lines.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 135: inserted 1 line.",
+      "recordedAt": "2026-11-06T22:21:18.064Z",
+      "recordedAtEpochMs": 1794003678064,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16847,
+        "hash": "e52f566a36b7",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003678063
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16849,
+        "hash": "f4e1aafef24a",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003678064
+      },
+      "diff": {
+        "lineStart": 135,
+        "removedLines": 0,
+        "addedLines": 1,
+        "summary": "Line 135: inserted 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 132: inserted 1 line.",
+      "recordedAt": "2026-11-06T22:21:12.263Z",
+      "recordedAtEpochMs": 1794003672263,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16845,
+        "hash": "c7389105e1b0",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003672263
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16847,
+        "hash": "e52f566a36b7",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003672263
+      },
+      "diff": {
+        "lineStart": 132,
+        "removedLines": 0,
+        "addedLines": 1,
+        "summary": "Line 132: inserted 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 131: removed 1 line.",
+      "recordedAt": "2026-11-06T22:21:09.434Z",
+      "recordedAtEpochMs": 1794003669434,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16847,
+        "hash": "a315981ea379",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003669434
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16845,
+        "hash": "c7389105e1b0",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003669434
+      },
+      "diff": {
+        "lineStart": 131,
+        "removedLines": 1,
+        "addedLines": 0,
+        "summary": "Line 131: removed 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 62: removed 1 line.",
+      "recordedAt": "2026-11-06T22:21:00.144Z",
+      "recordedAtEpochMs": 1794003660144,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16849,
+        "hash": "35ebee5c31d6",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003660144
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16847,
+        "hash": "a315981ea379",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003660144
+      },
+      "diff": {
+        "lineStart": 62,
+        "removedLines": 1,
+        "addedLines": 0,
+        "summary": "Line 62: removed 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 62: inserted 1 line.",
+      "recordedAt": "2026-11-06T22:20:58.617Z",
+      "recordedAtEpochMs": 1794003658617,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16847,
+        "hash": "a315981ea379",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003658617
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16849,
+        "hash": "35ebee5c31d6",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003658617
+      },
+      "diff": {
+        "lineStart": 62,
+        "removedLines": 0,
+        "addedLines": 1,
+        "summary": "Line 62: inserted 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 62: inserted 1 line.",
+      "recordedAt": "2026-11-06T22:20:57.112Z",
+      "recordedAtEpochMs": 1794003657112,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16845,
+        "hash": "1f5d1d9f3a32",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003657112
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16847,
+        "hash": "a315981ea379",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003657112
+      },
+      "diff": {
+        "lineStart": 62,
+        "removedLines": 0,
+        "addedLines": 1,
+        "summary": "Line 62: inserted 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    },
+    {
+      "type": "save",
+      "path": "server.py",
+      "toPath": "",
+      "summary": "Line 44: removed 1 line.",
+      "recordedAt": "2026-11-06T22:20:45.674Z",
+      "recordedAtEpochMs": 1794003645674,
+      "before": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16847,
+        "hash": "8314cd8031a5",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003645674
+      },
+      "after": {
+        "kind": "text",
+        "lineCount": 399,
+        "charCount": 16845,
+        "hash": "1f5d1d9f3a32",
+        "preview": "import os / import time / import json / import asyncio / from io import BytesIO / from fastapi import FastAPI, UploadFile, File, Request, HTTPException / from fastapi.middleware.cors import CORSMiddleware / from fasta...",
+        "updatedAt": 1794003645674
+      },
+      "diff": {
+        "lineStart": 44,
+        "removedLines": 1,
+        "addedLines": 0,
+        "summary": "Line 44: removed 1 line.",
+        "beforeFragment": "",
+        "afterFragment": ""
+      }
+    }
+  ],
+  "hotFiles": [
+    {
+      "filePath": "server.py",
+      "count": 31
+    },
+    {
+      "filePath": "requirements.txt",
+      "count": 2
+    },
+    {
+      "filePath": "server.js",
+      "count": 2
+    }
+  ],
+  "git": {
+    "available": true,
+    "branch": "main",
+    "headSummary": "2026-10-07 3752a2c Fix query streaming error",
+    "statusSummary": "1 deleted, 5 untrackeds",
+    "changedFileCount": 6,
+    "statusLines": [
+      "D server.js",
+      "?? graphify-out/",
+      "?? requirements.txt",
+      "?? server.py",
+      "?? workspace.json",
+      "?? workspacememory.md"
+    ],
+    "error": ""
+  },
+  "github": {
+    "available": true,
+    "summary": "GitHub Repository: Nishchay3112/docuagent-backend\nDescription: A CRAG system made using react.js and express.js \nVisibility: public | Default branch: main\nStars: 0 | Forks: 0 | Open issues: 0\n\nLatest commit on main:\n- 3752a2c by Nishchay on 2026-10-06\n  Fix query streaming error\n\nURL: https://github.com/Nishchay3112/docuagent-backend"
+  },
+  "graphify": {
+    "reportAvailable": false,
+    "graphAvailable": false,
+    "reportPath": "",
+    "graphPath": "",
+    "highlights": ""
+  },
+  "projectPlanner": null,
+  "agentNotes": [
+    "For recent repo changes, check recentChanges, trackedSnapshots, hotFiles, and git.",
+    "For architecture questions, combine graphify highlights with the Graphify report.",
+    "For machine-readable repo context, prefer this workspace.json manifest before broad repo scans."
+  ]
+}
